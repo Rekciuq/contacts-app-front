@@ -1,17 +1,40 @@
 import axios from 'axios';
 
+const PORT = '8000'
+const API_LINK = `http://localhost:${PORT}/api/v1/`;
 
-export async function getAllContacts() { // WORKING
-  const response = await axios.get('http://localhost:8000/api/v1/contacts');
+
+export async function getAllContacts() {
+  const response = await axios.get(API_LINK + 'contacts');
   console.log(response);
-} //GET ()
-export async function getOneContact(id) { // WORKING
-  const response = await axios.get(`http://localhost:8000/api/v1/contacts/${id}`);
+}
+
+export async function getOneContact(id) {
+  const response = await axios.get(API_LINK + `contacts/${id}`);
   console.log(response);
-} //GET (id)
-export async function createNewContact() {} //POST (OBJ)
-export async function editOneContact() {} //PUT or PATCH (OBJ or string?)
-export async function deleteContact(id) { // WORKING
-  const response = await axios.delete(`http://localhost:8000/api/v1/contacts/${id}`);
+}
+
+export async function createNewContact({name, phoneNumber = null, description = null, dateOfBirth = null}) {
+  const response = await axios.post(API_LINK + `contacts`, {
+    name,
+    phoneNumber,
+    description,
+    dateOfBirth
+  });
   console.log(response);
-} //DELETE (id)
+}
+
+export async function editOneContact(id, {name, phoneNumber, description, dateOfBirth}) {
+  const response = await axios.put(API_LINK + `contacts/${id}`, {
+    name,
+    phoneNumber,
+    description,
+    dateOfBirth
+  });
+  console.log(response);
+}
+
+export async function deleteContact(id) {
+  const response = await axios.delete(API_LINK + `contacts/${id}`);
+  console.log(response);
+}
