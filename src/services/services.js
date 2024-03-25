@@ -6,12 +6,12 @@ const API_LINK = `http://localhost:${PORT}/api/v1/`;
 
 export async function getAllContacts() {
   const response = await axios.get(API_LINK + 'contacts');
-  console.log(response);
+  return response.data;
 }
 
 export async function getOneContact(id) {
   const response = await axios.get(API_LINK + `contacts/${id}`);
-  console.log(response);
+  return response.data.data;
 }
 
 export async function createNewContact({name, phoneNumber = null, description = null, dateOfBirth = null}) {

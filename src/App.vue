@@ -1,12 +1,10 @@
 <script>
 import Header from './components/Header.vue'
-import {getAllContacts, getOneContact, createNewContact, editOneContact, deleteContact} from './services/services'
-import ShowContacts from './components/ShowContacts.vue'
+import {getOneContact, createNewContact, editOneContact, deleteContact} from './services/services'
 export default {
   name: 'App',
   components: {
     Header,
-    ShowContacts
   },
   data() {
     return {
@@ -24,7 +22,7 @@ export default {
 <template>
 <Header/>
 
-<ShowContacts/>
+<router-view></router-view>
 </template>
 
 <style scoped>
