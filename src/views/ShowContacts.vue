@@ -10,12 +10,6 @@ export default {
   methods: {
     assignData(dataObj) {
       this.contacts = dataObj.data;
-      console.log(window.location.href);
-    }
-  },
-  created() {
-    if(window.location.href.includes("page")) {
-      console.log(1);
     }
   },
   async beforeMount() {
@@ -33,20 +27,14 @@ export default {
     <span>Phone number</span>
     <span>Date of Birth</span>
    </div>
-   <!-- Here drop contacts forEach or smh -->
+
    <div class="contacts">
-    <div class="contacts__item" v-for="contact in contacts" :key="contact.id">
+    <router-link class="contacts__item" v-for="contact in contacts" :key="contact.id" :to="{name: 'ShowOneContact', params: { id: contact.id}}">
       <span class="contacts__item__name">{{ contact.name }}</span>
       <span class="contacts__item__phone-number">{{ contact.phoneNumber }}</span>
       <span class="contacts__item__date-of-birth">{{ contact.dateOfBirth }}</span>
-    </div>
+    </router-link>
    </div>
-   <!-- Pagination -->
-   <div class="pagination-container">
-    <span class="pagination__first-page"></span>
-    <span class="pagination__last-page"></span>
-   </div>
-   <!-- End of Pagination -->
   </div>
 </template>
 

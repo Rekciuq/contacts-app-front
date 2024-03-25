@@ -1,6 +1,6 @@
 <script>
 import Header from './components/Header.vue'
-import {getOneContact, createNewContact, editOneContact, deleteContact} from './services/services'
+import {createNewContact, editOneContact, deleteContact} from './services/services'
 export default {
   name: 'App',
   components: {
