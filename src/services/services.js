@@ -4,8 +4,14 @@ const PORT = '8000'
 const API_LINK = `http://localhost:${PORT}/api/v1/`;
 
 
-export async function getAllContacts() {
-  const response = await axios.get(API_LINK + 'contacts');
+export async function getAllContacts(page = null) {
+  let response;
+    if(page) {
+      response = await axios.get(API_LINK + `contacts?page=${page}`);
+    } else {
+      response = await axios.get(API_LINK + 'contacts');
+    }
+  console.log(response);
   return response.data;
 }
 
