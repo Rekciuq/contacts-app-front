@@ -37,5 +37,5 @@ export async function editOneContact(id, {name, phoneNumber, description, dateOf
 
 export async function deleteContact(id) {
   const response = await axios.delete(API_LINK + `contacts/${id}`);
-  console.log(response);
+  return response;
 }

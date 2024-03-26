@@ -1,5 +1,5 @@
 <script>
-import {getOneContact} from '../services/services.js'
+import {getOneContact, deleteContact} from '../services/services.js'
 export default {
   name: "ShowOneContact",
   async beforeMount() {
@@ -7,10 +7,14 @@ export default {
   },
   data() {
     return {
-      contact: ''
+      contact: "",
     }
   },
   methods: {
+    deleteHandler() {
+      deleteContact(this.contact.id);
+      this.contact = "Contact was removed.";
+    }
   }
 }
 </script>
@@ -18,6 +22,7 @@ export default {
 <template>
   <div class="card">
     {{ contact }}
+    <button @click="deleteHandler">Delete contact</button>
   </div>
 </template>
 
