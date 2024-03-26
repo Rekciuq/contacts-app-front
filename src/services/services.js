@@ -6,7 +6,6 @@ const API_LINK = `http://localhost:${PORT}/api/v1/`;
 
 export async function getAllContacts() {
   const response = await axios.get(API_LINK + 'contacts');
-  console.log(response);
   return response.data;
 }
 
