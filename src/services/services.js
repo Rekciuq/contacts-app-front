@@ -21,7 +21,7 @@ export async function createNewContact({name, phoneNumber = null, description = 
     description,
     dateOfBirth
   });
-  console.log(response);
+  return response.data;
 }
 
 export async function editOneContact(id, {name, phoneNumber, description, dateOfBirth}) {

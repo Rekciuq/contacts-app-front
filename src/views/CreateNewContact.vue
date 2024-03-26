@@ -13,16 +13,19 @@ export default {
     }
   },
   methods: {
-    createContactHandler() {
+    async createContactHandler() {
       if(!this.contact.name) {
-        return -1; // Make underline or write around that you need to write name
+        return -1;
       };
-      createNewContact({
+
+      const response = await createNewContact({
         name: this.contact.name,
         phoneNumber: this.contact.phoneNumber,
         description: this.contact.description,
         dateOfBirth: this.contact.dateOfBirth //need in format YY-mm-dd
       });
+
+      this.$router.push(`contact/${response.data.id}`);
     }
   }
 }
