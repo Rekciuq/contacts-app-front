@@ -31,7 +31,7 @@ export async function editOneContact(id, {name, phoneNumber, description, dateOf
     description,
     dateOfBirth
   });
-  console.log(response);
+  return response.data;
 }
 
 export async function deleteContact(id) {

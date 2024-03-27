@@ -1,10 +1,9 @@
 <script>
-import Header from './components/Header.vue'
-import {editOneContact} from './services/services'
+import ContactsHeader from './components/Header.vue'
 export default {
   name: 'App',
   components: {
-    Header,
+    ContactsHeader,
   },
   data() {
     return {
@@ -20,7 +19,7 @@ export default {
 </script>
 
 <template>
-<Header/>
+<contacts-header/>
 
 <router-view></router-view>
 </template>
