@@ -5,16 +5,6 @@ export default {
   components: {
     ContactsHeader,
   },
-  data() {
-    return {
-    }
-  },
-  methods: {
-
-  },
-  computed: {
-
-  }
 }
 </script>
 

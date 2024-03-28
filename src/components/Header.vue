@@ -13,7 +13,9 @@ a {
   text-decoration-line: none;
 }
 span {
-  color: #5f6368;
+  display: inline-block;
+  margin: 0.5rem;
   font-size: 2.5rem;
+  color: #5f6368;
 }
 </style>

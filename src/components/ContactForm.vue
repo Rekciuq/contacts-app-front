@@ -63,8 +63,7 @@ export default {
 
     <div class="form__date-of-birth">
       <label for="date-of-birth">Date of Birth: </label>
-      <input type="text" name="date-of-birth" v-model="rawContact.dateOfBirth">
-      <span>YY-mm-dd</span>
+      <input type="date" name="date-of-birth" v-model="rawContact.dateOfBirth">
     </div>
 
     <button @click="prepareContact">{{ buttonText }}</button>
