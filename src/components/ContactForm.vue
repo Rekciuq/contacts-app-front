@@ -24,7 +24,7 @@ export default {
         phoneNumber: null,
         description: null,
         dateOfBirth: null
-      }
+      },
     }
   },
   mounted() {
@@ -46,28 +46,63 @@ export default {
 
 <template>
   <div class="form-container">
-    <div class="form__name">
-      <label for="name">Name: </label>
-      <input type="text" name="name" v-model="rawContact.name">
+    <div class="form__name flex-vertical-center">
+      <span class="material-symbols-outlined">person</span>
+      <input type="text" name="name" placeholder="Name" v-model="rawContact.name">
     </div>
 
-    <div class="form__phone-number">
-      <label for="phone-number">Phone number: </label>
-      <input type="text" name="phone-number" v-model="rawContact.phoneNumber">
+    <div class="form__phone-number flex-vertical-center">
+      <span class="material-symbols-outlined">call</span>
+      <input type="text" name="phone-number" placeholder="Phone number" v-model="rawContact.phoneNumber">
+    </div>
+
+    <div class="form__date-of-birth flex-vertical-center">
+      <span class="material-symbols-outlined">cake</span>
+      <input type="date" name="date-of-birth" v-model="rawContact.dateOfBirth">
     </div>
 
     <div class="form__description">
-      <label for="description">Description: </label>
-      <input type="text" name="description" v-model="rawContact.description">
-    </div>
-
-    <div class="form__date-of-birth">
-      <label for="date-of-birth">Date of Birth: </label>
-      <input type="date" name="date-of-birth" v-model="rawContact.dateOfBirth">
+      <span class="material-symbols-outlined">description</span>
+      <textarea type="text" name="description" placeholder="Description" v-model="rawContact.description"></textarea>
     </div>
 
     <button @click="prepareContact">{{ buttonText }}</button>
   </div>
 </template>
 
-<style></style>
+<style>
+.form-container {
+  margin: 0.5rem;
+}
+
+input {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.form__description{
+  display: flex;
+}
+
+.form__description textarea {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  height: 5rem;
+  resize: vertical;
+  width: 100%;
+}
+
+@media (min-width: 30rem) {
+ input {
+  font-size: 1.3rem;
+ }
+ .form__description textarea {
+  font-size:1.3rem;
+ }
+ .form-container {
+  max-width: 30rem;
+ }
+}
+
+</style>

@@ -83,13 +83,7 @@ export default {
   align-items: center;
 }
 
-.material-symbols-outlined {
-  border-radius: 50%;
-  font-size: 1.7rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-right: 0.5rem;
-}
+
 
 .contact-info__details {
   font-size: 1.3rem;
@@ -101,19 +95,11 @@ export default {
   border-radius: 15px;
 }
 
-.flex-vertical-center {
-  display: flex;
-  align-items: center;
-}
+
 
 hr {
   border-color: rgba(204, 204, 204, 0.5);
 }
-
-/* .contact-info {
-  background-color: white;
-  height: calc(100vh - 65px);
-} */
 
 .contact-info__description {
   width: 100%;
@@ -127,10 +113,6 @@ hr {
 }
 
 @media (min-width: 40rem) {
- /* .contact-info {
-    height: calc(100vh - 80px);
-  } */
-
   .contact-info__details {
     max-width: 40rem;
   }

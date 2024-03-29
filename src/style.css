@@ -25,3 +25,16 @@ body {
   background-color: #F0F0F0;
   transition: background-color 0.3s;
 }
+
+.material-symbols-outlined {
+  border-radius: 50%;
+  font-size: 1.7rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.flex-vertical-center {
+  display: flex;
+  align-items: center;
+}
