@@ -19,6 +19,7 @@ export default {
   },
   data() {
     return {
+      hasError: false,
       rawContact: {
         name: null,
         phoneNumber: null,
@@ -37,9 +38,18 @@ export default {
       if(this.rawContact.name) {
         this.$emit("prepared-contact", this.rawContact);
       } else {
-        // This will be error
+        this.hasError = true;
       }
     }
+  },
+  watch: {
+    'rawContact.name': function() {
+      if(this.rawContact.name === "") {
+        this.hasError = true;
+      } else {
+        this.hasError = false;
+      }
+    },
   }
 }
 </script>
@@ -48,8 +58,9 @@ export default {
   <div class="form-container">
     <div class="form__name flex-vertical-center">
       <span class="material-symbols-outlined">person</span>
-      <input type="text" name="name" placeholder="Name" v-model="rawContact.name">
+      <input type="text" name="name" placeholder="Name" :class="{'border-error': hasError}" v-model="rawContact.name">
     </div>
+    <div :class="{'name-error': hasError, 'display-none': !hasError}">You must enter name!</div>
 
     <div class="form__phone-number flex-vertical-center">
       <span class="material-symbols-outlined">call</span>
@@ -75,9 +86,29 @@ export default {
   margin: 0.5rem;
 }
 
+.name-error {
+  display: block;
+  color: red;
+  font-size: 1.5rem;
+  margin-left: 3rem;
+}
+
+.display-none {
+  display: none;
+}
+
+.border-error {
+  border: 1px solid red;
+}
+
+.border-error:focus {
+  outline: 0;
+}
+
 input {
   width: 100%;
   font-size: 1.5rem;
+  padding: 0.3rem;
 }
 
 .form__description{
@@ -87,6 +118,7 @@ input {
 .form__description textarea {
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+  padding: 0.3rem;
   font-size: 1.5rem;
   height: 5rem;
   resize: vertical;

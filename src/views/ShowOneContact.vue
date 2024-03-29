@@ -83,8 +83,6 @@ export default {
   align-items: center;
 }
 
-
-
 .contact-info__details {
   font-size: 1.3rem;
   padding-top: 0.5rem;
@@ -95,21 +93,19 @@ export default {
   border-radius: 15px;
 }
 
-
-
 hr {
   border-color: rgba(204, 204, 204, 0.5);
 }
 
 .contact-info__description {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   display: flex;
 }
 
 .contact-info__description--text {
   width: 80%;
-  padding-top: 0.75rem;
+  padding-top: 0.5rem;
 }
 
 @media (min-width: 40rem) {
