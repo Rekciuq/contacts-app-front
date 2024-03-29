@@ -77,8 +77,8 @@ export default {
       <textarea type="text" name="description" placeholder="Description" v-model="rawContact.description"></textarea>
     </div>
 
-    <button @click="prepareContact">{{ buttonText }}</button>
   </div>
+  <button @click="prepareContact" class="form__button">{{ buttonText }}</button>
 </template>
 
 <style>
@@ -91,6 +91,24 @@ export default {
   color: red;
   font-size: 1.5rem;
   margin-left: 3rem;
+}
+
+.form__button {
+  background-color: #0B57D0;
+  color: white;
+  border: 0;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  font-family: inherit;
+  padding: 0.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2)
+}
+
+.form__button:hover,
+.form__button:active {
+  background-color: #1E64D4;
 }
 
 .display-none {
@@ -111,18 +129,28 @@ input {
   padding: 0.3rem;
 }
 
-.form__description{
+.form__description {
   display: flex;
 }
 
+.form__description span {
+  padding-top: 0;
+}
+
 .form__description textarea {
-  margin-top: 0.5rem;
   margin-bottom: 1.5rem;
   padding: 0.3rem;
   font-size: 1.5rem;
   height: 5rem;
   resize: vertical;
   width: 100%;
+}
+
+.form__name,
+.form__phone-number,
+.form__date-of-birth,
+.form__description {
+  margin-top: 0.5rem;
 }
 
 @media (min-width: 30rem) {

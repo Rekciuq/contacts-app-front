@@ -1,10 +1,22 @@
 <script>
 import ContactsHeader from './components/Header.vue'
+import DeletedContactPopUp from './components/DeletedContactPopUp.vue';
 export default {
   name: 'App',
   components: {
     ContactsHeader,
+    DeletedContactPopUp
   },
+  data() {
+    return {
+      isDeleted: false,
+    }
+  },
+  beforeMount() {
+   if(window.location.pathname === "/deleted") {
+    this.isDeleted = true;
+   }
+  }
 }
 </script>
 
@@ -14,9 +26,10 @@ export default {
 <div class="container">
   <router-view></router-view>
 </div>
+<deleted-contact-pop-up v-if="isDeleted"/>
 </template>
 
-<style scoped>
+<style>
 .container {
   background-color: white;
   height: calc(100vh - 65px);

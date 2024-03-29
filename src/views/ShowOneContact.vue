@@ -23,12 +23,7 @@ export default {
   methods: {
     deleteContactHandler() {
       deleteContact(this.contact.id);
-      this.contact = "Contact was removed.";
-    },
-    editContactHandler() {
-      console.log("OK!"); //Handle this later with pop-up or something
-
-      this.isEdit = false;
+      this.$router.push({name: "ContactDeleted"});
     }
   }
 }
@@ -37,7 +32,7 @@ export default {
 <template>
     <div v-if="isEdit">
       <edit-contact :contact="contact" @edit-completed="isEdit = false">
-        <button @click="isEdit = false">Go back</button>
+        <button class="form__button" @click="isEdit = false">Go back</button>
       </edit-contact>
     </div>
 
@@ -96,6 +91,8 @@ export default {
 hr {
   border-color: rgba(204, 204, 204, 0.5);
 }
+
+
 
 .contact-info__description {
   width: 100%;

@@ -20,7 +20,8 @@ export default {
     async editOneContactHandler(preparedContact) {
       const response = await editOneContact(this.$props.contact.id, preparedContact);
       console.log(response);
-      this.$emit("edit-completed", false);
+      this.$emit("edit-completed", true);
+      this.$router.go();
     }
   }
 }

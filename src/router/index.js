@@ -11,6 +11,11 @@ const routes = [
     component: ShowContacts
   },
   {
+    path: '/deleted',
+    name: 'ContactDeleted',
+    component: ShowContacts
+  },
+  {
     path: '/contact/:id(\\d+)',
     name: 'ShowOneContact',
     component: ShowOneContact
