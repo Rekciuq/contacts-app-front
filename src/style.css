@@ -10,3 +10,18 @@ body {
   background-color: #f8fafd;
   font-family: 'Montserrat', sans-serif;
 }
+
+.edit-button,
+.delete-button {
+  padding: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+.edit-button:hover,
+.edit-button:active,
+.delete-button:hover,
+.delete-button:active {
+  cursor: pointer;
+  background-color: #F0F0F0;
+  transition: background-color 0.3s;
+}

@@ -1,6 +1,6 @@
 <script>
 import { getAllContacts } from '../services/services';
-import CreateButton from '../components/CreateButton.vue';
+import CreateButton from '../components/buttons/CreateButton.vue';
 export default {
   name: "ShowContacts",
   components: {
@@ -24,9 +24,6 @@ export default {
 </script>
 
 <template>
-  <div class="contacts-container">
-    <div class="contacts">
-
       <div class="contacts__headers">
         <div class="contacts__headers__name">Name</div>
         <div class="contacts__headers__phone-number">Phone number</div>
@@ -39,15 +36,9 @@ export default {
         <span class="contacts__item__date-of-birth">{{ contact.dateOfBirth }}</span>
       </router-link>
       <create-button/>
-   </div>
-  </div>
 </template>
 
 <style scoped>
-
-.contacts-container {
-  background-color: white;
-}
 
 .contacts__headers {
   font-size: 1.3rem;
