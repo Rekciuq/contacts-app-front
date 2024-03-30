@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const PORT = '8000'
-const API_LINK = `http://localhost:${PORT}/api/v1/`;
+const API_LINK = `https://contact-app-back-green-night-5834.fly.dev/api/v1/`;
 
 
 export async function getAllContacts() {
