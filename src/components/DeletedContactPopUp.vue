@@ -18,7 +18,7 @@ export default {
   background-color: rgba(48, 48, 48, 0.95);
   padding: 1.5rem;
   border-radius: 10px;
-  animation: liftAndDown 3s ease-out 2 alternate;
+  animation: liftAndDown 1.5s ease-out 2 alternate;
   animation-delay: 1s;
 }
 

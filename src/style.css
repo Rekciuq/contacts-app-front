@@ -38,3 +38,24 @@ body {
   display: flex;
   align-items: center;
 }
+
+.not-found__container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.not-found__container span {
+  font-family: inherit;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 50rem) {
+.not-found__container span {
+    margin-top: 5rem;
+    font-size: 4.5rem;
+  }
+}

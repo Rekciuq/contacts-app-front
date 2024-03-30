@@ -26,6 +26,7 @@ export default {
 <div class="container">
   <router-view></router-view>
 </div>
+
 <deleted-contact-pop-up v-if="isDeleted"/>
 </template>
 

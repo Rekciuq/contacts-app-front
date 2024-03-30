@@ -12,18 +12,24 @@ export default {
     DeleteButton
   },
   async beforeCreate() {
-    this.contact = await getOneContact(this.$route.params.id)
+    try {
+      this.contact = await getOneContact(this.$route.params.id);
+    } catch (error) {
+      this.$router.push({name: "NotFound", params: {catchAll: "Not_exist"}});
+    }
   },
   data() {
     return {
-      contact: null,
+      contact: {},
       isEdit: false
     }
   },
   methods: {
     deleteContactHandler() {
-      deleteContact(this.contact.id);
-      this.$router.push({name: "ContactDeleted"});
+      const response = deleteContact(this.contact.id);
+      response.then(() => {
+        window.location.href = window.location.origin + '/deleted';
+      })
     }
   }
 }

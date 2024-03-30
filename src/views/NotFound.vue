@@ -1,12 +1,12 @@
 <script>
 export default {
-
+  name: "NotFound"
 }
 </script>
 
 <template>
-  <h2>404</h2>
-  <h3>Page not found</h3>
+  <div class="not-found__container">
+    <span>404</span>
+    <span>Page is not found!</span>
+  </div>
 </template>
-
-<style></style>

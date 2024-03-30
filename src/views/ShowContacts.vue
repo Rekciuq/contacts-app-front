@@ -9,11 +9,18 @@ export default {
   data() {
     return {
       contacts: [],
+      isEmpty: false
     }
   },
   methods: {
     assignData(dataObj) {
-      this.contacts = dataObj.data;
+      if(dataObj.data.length) {
+        this.contacts = dataObj.data;
+        this.isEmpty = false;
+      }
+      else {
+        this.isEmpty = true;
+      }
     }
   },
   async beforeMount() {
@@ -24,21 +31,33 @@ export default {
 </script>
 
 <template>
-      <div class="contacts__headers">
-        <div class="contacts__headers__name">Name</div>
-        <div class="contacts__headers__phone-number">Phone number</div>
-        <div class="contacts__headers__date-of-birth">Date of Birth</div>
-      </div>
+  <div class="contacts__headers">
+    <div class="contacts__headers__name">Name</div>
+    <div class="contacts__headers__phone-number">Phone number</div>
+    <div class="contacts__headers__date-of-birth">Date of Birth</div>
+  </div>
 
-      <router-link class="contacts__item" v-for="contact in contacts" :key="contact.id" :to="{name: 'ShowOneContact', params: { id: contact.id}}">
-        <span class="contacts__item__name">{{ contact.name }}</span>
-        <span class="contacts__item__phone-number">{{ contact.phoneNumber }}</span>
-        <span class="contacts__item__date-of-birth">{{ contact.dateOfBirth }}</span>
-      </router-link>
-      <create-button/>
+  <div class="contacts-container" v-if="!isEmpty">
+
+    <router-link class="contacts__item" v-for="contact in contacts" :key="contact.id" :to="{name: 'ShowOneContact', params: { id: contact.id}}">
+      <span class="contacts__item__name">{{ contact.name }}</span>
+      <span class="contacts__item__phone-number">{{ contact.phoneNumber }}</span>
+      <span class="contacts__item__date-of-birth">{{ contact.dateOfBirth }}</span>
+    </router-link>
+  </div>
+
+  <div class="not-found__container" v-else-if="isEmpty">
+    <span>There are no records!</span>
+  </div>
+
+  <create-button/>
 </template>
 
 <style scoped>
+
+.not-found__container {
+  height: auto;
+}
 
 .contacts__headers {
   font-size: 1.3rem;
@@ -61,11 +80,13 @@ a {
   display: inline-block;
   width: 100%;
 }
+
 a:active,
 a:hover {
   background-color: #EBF2FC;
   transition: background-color 0.3s;
 }
+
 @media (min-width: 50rem) {
   .contacts__headers {
     display: grid;
@@ -79,7 +100,6 @@ a:hover {
   .contacts__item__phone-number {
     display: block;
   }
-
 }
 
 @media (min-width: 75rem) {
