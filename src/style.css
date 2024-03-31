@@ -53,9 +53,26 @@ body {
   margin-top: 2rem;
 }
 
+.delete-animation {
+  animation: liftAndDown 1.5s ease-out 2 alternate;
+  animation-delay: 1s;
+
+}
+
+@keyframes liftAndDown {
+  0% {
+    bottom: -7.5rem;
+  }
+
+  100% {
+    bottom: 2.5rem;
+  }
+}
+
 @media (min-width: 50rem) {
 .not-found__container span {
     margin-top: 5rem;
     font-size: 4.5rem;
   }
 }
+

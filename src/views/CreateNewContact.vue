@@ -8,10 +8,8 @@ export default {
   },
   methods: {
     async createContactHandler(preparedContact) {
-
       const response = await createNewContact(preparedContact);
-
-      this.$router.push(`contact/${response.data.id}`);
+      this.$router.push({name: "ShowOneContact", params: {id: response.data.id}});
     }
   }
 }

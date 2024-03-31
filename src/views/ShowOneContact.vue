@@ -11,6 +11,9 @@ export default {
     EditButton,
     DeleteButton
   },
+  emits: {
+    "contact-deleted": (value) => typeof value === "null",
+  },
   async beforeCreate() {
     try {
       this.contact = await getOneContact(this.$route.params.id);
@@ -33,7 +36,8 @@ export default {
     deleteContactHandler() {
       const response = deleteContact(this.contact.id);
       response.then(() => {
-        window.location.href = window.location.origin + '/deleted';
+        this.$emit("contact-deleted", null);
+        this.$router.push({name: "ShowContacts"});
       })
     }
   }

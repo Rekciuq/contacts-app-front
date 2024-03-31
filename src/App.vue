@@ -12,10 +12,14 @@ export default {
       isDeleted: false,
     }
   },
-  beforeMount() {
-   if(window.location.pathname === "/deleted") {
-    this.isDeleted = true;
-   }
+  methods: {
+    deleteContactAnimation() {
+      this.isDeleted = true;
+      setTimeout(() => {
+        this.isDeleted = false;
+      }, 5000)
+
+    }
   }
 }
 </script>
@@ -24,10 +28,10 @@ export default {
 <contacts-header/>
 
 <div class="container">
-  <router-view></router-view>
+  <router-view @contact-deleted="deleteContactAnimation"></router-view>
 </div>
 
-<deleted-contact-pop-up v-if="isDeleted"/>
+<deleted-contact-pop-up :class="{'delete-animation': isDeleted}" />
 </template>
 
 <style>

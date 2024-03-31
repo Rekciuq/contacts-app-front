@@ -18,8 +18,6 @@ export default {
   background-color: rgba(48, 48, 48, 0.95);
   padding: 1.5rem;
   border-radius: 10px;
-  animation: liftAndDown 1.5s ease-out 2 alternate;
-  animation-delay: 1s;
 }
 
 .delete-pop-up span {
@@ -27,13 +25,4 @@ export default {
   color: white;
 }
 
-@keyframes liftAndDown {
-  0% {
-    bottom: -7.5rem;
-  }
-
-  100% {
-    bottom: 2.5rem;
-  }
-}
 </style>
