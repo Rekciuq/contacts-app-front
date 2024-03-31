@@ -7,7 +7,7 @@ export default {
     ContactForm
   },
   emits: {
-    "edit-completed": (value) => typeof value === "boolean",
+    "edit-completed": (value) => typeof value === "object",
   },
   props: {
     contact: {
@@ -19,9 +19,7 @@ export default {
   methods: {
     async editOneContactHandler(preparedContact) {
       const response = await editOneContact(this.$props.contact.id, preparedContact);
-      console.log(response);
-      this.$emit("edit-completed", true);
-      this.$router.go();
+      this.$emit("edit-completed", response.data);
     }
   }
 }

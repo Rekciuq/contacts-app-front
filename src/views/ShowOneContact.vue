@@ -25,6 +25,11 @@ export default {
     }
   },
   methods: {
+      editCompletedHandler(response) {
+        this.isEdit = false;
+        this.contact = response;
+
+    },
     deleteContactHandler() {
       const response = deleteContact(this.contact.id);
       response.then(() => {
@@ -37,7 +42,7 @@ export default {
 
 <template>
     <div v-if="isEdit">
-      <edit-contact :contact="contact" @edit-completed="isEdit = false">
+      <edit-contact :contact="contact" @edit-completed="editCompletedHandler">
         <button class="form__button" @click="isEdit = false">Go back</button>
       </edit-contact>
     </div>
